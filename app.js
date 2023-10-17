@@ -14,9 +14,7 @@ async function compile_election_results(filename) {
     });
 
     file.on("line", (line) => {
-      const line_split = line.split(", ");
-      const voter_id = line_split[0];
-      const candidate_id = line_split[1];
+      const [voter_id, candidate_id] = line.split(", ");
 
       // Check for fraud
       if (voters.has(voter_id)) {
